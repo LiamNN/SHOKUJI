@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     if @recipe.save
-      redirect_to recipes_path(@recipe)
+      redirect_to recipe_path(@recipe)
     else
       render "new"
     end
@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe.destroy
-    redirect_to recipes_path(@recipe)
+    redirect_to recipes_path
   end
 
   private

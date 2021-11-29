@@ -4,4 +4,5 @@ class ScheduledRecipe < ApplicationRecord
 
   belongs_to :recipe
   belongs_to :user
+  has_many :ingredients, through: :recipe
 end
