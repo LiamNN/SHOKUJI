@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'shopping_lists/create'
+  get 'shopping_lists/new'
   devise_for :users
 
   root to: 'pages#home'
@@ -7,9 +9,10 @@ Rails.application.routes.draw do
 
   resources :recipes do
     resources :reviews, only: [:index, :show, :new, :create]
+    resources :scheduled_recipes, only: [:index, :new, :create]
   end
 
-  resources :methods_ingredients, only: [:index, :show]
+  post 'shopping_list', to: 'shopping_list#create'
+  get 'shopping_list', to: 'shopping_list#new'
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
