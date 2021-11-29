@@ -7,8 +7,10 @@ class Recipe < ApplicationRecord
 
   belongs_to :user
 
+
   has_many :reviews
   has_many :recipe_methods
   has_many :method_ingredients, through: :recipe_methods
   has_many :ingredients, through: :method_ingredients
+
 end
