@@ -1,0 +1,2 @@
+class ScheduleRecipesController < ApplicationController
+end
