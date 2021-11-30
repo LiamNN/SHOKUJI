@@ -2,14 +2,6 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :destroy]
   before_action :set_recipe, only: [:new, :create]
 
-  def index
-    @reviews = Review.all
-  end
-
-  def show
-  end
-
-
   def new
      @review = Review.new
   end
@@ -18,15 +10,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.recipe = @recipe
     if @review.save
-      # redirect_to recipe_review_path(@recipe)
+      redirect_to recipe_path(@recipe.review)
     else
       render "new"
     end
-  end
-
-  def destroy
-    @review.destroy
-    # redirect_to recipes_path(@recipe)
   end
 
   private
