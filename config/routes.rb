@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :goals, only: [:index, :show]
 
   resources :recipes do
-    resources :recipe_methods, only: [:index, :show, :new, :create, :destroy]
+    resources :recipe_methods, only: [:index, :new, :create, :destroy]
     resources :reviews, only: [:index, :show, :new, :create]
     resources :scheduled_recipes, only: [:index, :new, :create]
   end

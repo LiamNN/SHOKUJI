@@ -1,4 +1,4 @@
-class ScheduleRecipesController < ApplicationController
+class ScheduledRecipesController < ApplicationController
   def index
     @scheduled_recipes = ScheduledRecipe.all
   end

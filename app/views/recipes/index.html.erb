@@ -3,6 +3,6 @@
 <% @recipes.each do |recipe| %>
   <%= link_to recipe_path(recipe), class:'text-decoration-none' do %>
     <h4><%= recipe.name %></h4>
-    <p style='color: #476072;'><%= recipe.category %></p>
+    <p style='color: #476072;'><%= recipe.meal_time %></p>
   <% end %>
 <% end %>

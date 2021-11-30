@@ -17,7 +17,7 @@ require 'faker'
   )
 end
 
-5. times do
+5.times do
   Ingredient.create(
     name: Faker::Food.ingredient,
     # macros:,
