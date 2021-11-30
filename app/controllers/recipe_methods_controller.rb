@@ -1,5 +1,7 @@
 class RecipeMethodsController < ApplicationController
-  before_action :set_recipe, only: [:show, :index, :new, :create]
+  before_action :set_recipe, only: [:show, :index, :new, :create, :edit, :update]
+  before_action :set_method, only: [:edit, :update]
+
 
   def index
     @recipe_methods = RecipeMethod.where(recipe_id: params[:recipe_id])
@@ -10,6 +12,14 @@ class RecipeMethodsController < ApplicationController
 
   def new
     @recipe_method = RecipeMethod.new
+  end
+
+  def edit
+  end
+
+  def update
+    @recipe_method.update(recipe_params)
+    redirect_to recipe_recipe_methods_path(recipe_id: params[:recipe_id])
   end
 
   def create
@@ -24,6 +34,10 @@ class RecipeMethodsController < ApplicationController
   end
 
   private
+
+  def set_method
+    @recipe_method = RecipeMethod.find(params[:id])
+  end
 
   def set_recipe
     @recipe = Recipe.find(params[:recipe_id])
