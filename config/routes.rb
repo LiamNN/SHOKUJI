@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'shopping_lists/create'
-  get 'shopping_lists/new'
+  get 'profiles/:id', to: 'profiles#show', as: :profile
   devise_for :users
 
   root to: 'pages#home'
