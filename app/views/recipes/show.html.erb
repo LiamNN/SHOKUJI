@@ -28,6 +28,9 @@
         <%= i.instructions %>
         <br>
       <% end %>
+      <br>
+      <br>
+      <%= link_to 'Edit Method', recipe_recipe_methods_path(recipe_id: params[:id]), :style=>"color: rgba(0,0,0,1);"%>
       </p>
     </div>
   </div>
