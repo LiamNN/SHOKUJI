@@ -1,6 +1,6 @@
 <h1>Methods#index</h1>
 <p>Find me in app/views/methods/index.html.erb</p>
-<%= link_to '< Back', recipes_path, :style=>"color: rgba(0,0,0,1);"%>
+<%= link_to '< Back', recipe_path(params[:recipe_id]), :style=>"color: rgba(0,0,0,1);"%>
 <% if @recipe_methods.count == 0 %>
   <p>There is no current method for this recipe</p>
 <% else %>
@@ -8,3 +8,5 @@
     <h4><%= steps.instructions %></h4>
   <% end %>
 <% end %>
+<br>
+<%= link_to 'New Method', new_recipe_recipe_method_path(recipe_id: params[:recipe_id]), :style=>"color: rgba(0,0,0,1);"%>
