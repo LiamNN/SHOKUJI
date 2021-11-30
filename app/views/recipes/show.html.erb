@@ -1,2 +1,48 @@
 <h1>Recipes#show</h1>
 <p>Find me in app/views/recipes/show.html.erb</p>
+
+<div class="row" style="margin-left: 100px; margin-top: 50px;" >
+  <%= link_to '< Back', recipes_path, :style=>"color: rgba(0,0,0,1);"%>
+</div>
+<div class='container'>
+  <div class='container'>
+    <div class="container p-3 d-flex">
+      <div class="container p-3 pl-7" style="max-width: 25%; justify-content: right; display: flex;">
+      <div style="height: 150px; width:150px; border-radius: 50%; overflow:hidden">
+        <img src=<%= @recipe.photo %> style="height: 100%; width: 100%; object-fit: cover">
+      </div>
+      </div>
+      <div class="container p-3" style="">
+        <h1 style="font-weight: 700;"><%= @recipe.name %></h1>
+        <h5 style="color: rgba(100,100,100,0.7); font-weight: 700;">
+          <%= @recipe.time %></h5>
+          <% end %>
+        <p style='color: rgba(0,0,0,0.8); font-weight: 700;'><%= @recipe.meal_time %></p>
+      </div>
+      <div class="container p-3" style="align-items: center; justify-content: left; display: flex;">
+        <a href="<%= new_schedule_recipe_path(@recipe.id) %>" class="btn btn-ghost" style="height: 40px;">Save this recipe</a>
+      </div>
+    </div>
+    <div style="margin-left: 110px; margin-top: 15px;">
+      <p><%= @recipe.description %></p>
+    </div>
+  </div>
+  <br>
+  <div class="container" style="justify-content: center;">
+  <h4 class="pt-5 pb-3" style="justify-content: center; display: flex; font-weight: 700;">Reviews</h4>
+    <% if @recipe.reviews.length == 0  %>
+      <div style="justify-content: center; display: flex;">
+        <p>No reviews yet</p>
+      </div>
+    <% end %>
+    <div class="container" style="align-items: center; justify-content: center;">
+      <% @recipe.reviews.each do |review| %>
+        <div class="card p-3 pb-2 mb-3" style="">
+          <div class="d-flex mb-4" style="justify-content: space-between;"><h6 style="color: rgba(0,0,0,0.5);"><%= review.booking.user.email %></h6><h6 style="font-weight: 700;"><%= review.rating %>/10</h6></div>
+          <p>' <%= review.content %> '</p>
+        </div>
+      <% end %>
+    </div>
+    </div>
+
+</div>
