@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% if user_signed_in? %>
+  <%= link_to 'User (edit)',  edit_user_registration_path %>
+  <%= link_to 'User (show)', profile_path(current_user) %>
+<% end %>
+ <% if @recipe %>
+
+  <% end %>
