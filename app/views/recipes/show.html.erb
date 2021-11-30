@@ -19,7 +19,7 @@
         <p style='color: rgba(0,0,0,0.8); font-weight: 700;'><%= @recipe.meal_time %></p>
       </div>
       <div class="container p-3" style="align-items: center; justify-content: left; display: flex;">
-        <a href="<%= new_recipe_scheduled_recipe_path(params[:id]) %>" class="btn btn-ghost" style="height: 40px;">Save this recipe</a>
+        <a href="<% new_recipe_scheduled_recipe_path(params[:id]) %>" class="btn btn-ghost" style="height: 40px;">Save this recipe</a>
       </div>
     </div>
     <div style="margin-left: 110px; margin-top: 15px;">
@@ -31,6 +31,9 @@
       </p>
     </div>
   </div>
+  <div>
+      <%= button_to 'Delete Recipe', recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure you want to remove this recipe?"} ,class: "btn btn-ghost px-2 mx-auto", style:"width: 130px;" %>
+    </div>
   <br>
   <div class="container" style="justify-content: center;">
     <h4 class="pt-5 pb-3" style="justify-content: center; display: flex; font-weight: 700;">Reviews</h4>
@@ -43,14 +46,11 @@
       <% @recipe.reviews.each do |review| %>
         <div class="card p-3 pb-2 mb-3" style="">
           <div class="d-flex mb-4" style="justify-content: space-between;"><h6 style="color: rgba(0,0,0,0.5);">
-            <%= review.booking.user.email %></h6><h6 style="font-weight: 700;"><%= review.rating %>/10</h6>
+           <%= review.rating %>/10</h6>
           </div>
           <p>' <%= review.content %> '</p>
         </div>
       <% end %>
-    </div>
-    <div>
-      <%= button_to 'Delete Recipe', recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure you want to remove this recipe?"} ,class: "btn btn-ghost px-2 mx-auto", style:"width: 130px;" %>
     </div>
   </div>
 
