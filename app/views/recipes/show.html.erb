@@ -23,7 +23,12 @@
       </div>
     </div>
     <div style="margin-left: 110px; margin-top: 15px;">
-      <p><%= @recipe.recipe_methods %></p>
+      <p>
+      <% @recipe.recipe_methods.each do |i| %>
+        <%= i.instructions %>
+        <br>
+      <% end %>
+      </p>
     </div>
   </div>
   <br>
