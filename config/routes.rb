@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'profiles/:id', to: 'profiles#show', as: :profile 
   devise_for :users
 
   root to: 'pages#home'
