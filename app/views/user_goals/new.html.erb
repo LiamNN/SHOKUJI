@@ -1,0 +1,16 @@
+<h1>UserGoal#new</h1>
+<p>Find me in app/views/user_goal/new.html.erb</p>
+
+<div class="container py-5">
+  <h3 class="text-center">Set your goals</h3>
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-md-3">
+      <div class="form-container">
+        <%= simple_form_for @user, url: user_goals_path, method: 'post' do |f| %>
+          <%= f.input :goal_ids, as: :check_boxes, collection: Goal.all, label_method: :name, value_method: :id %>
+          <%= f.submit class: 'btn btn-ghost', text: 'Rusca' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
