@@ -1,4 +1,7 @@
 class ScheduledRecipesController < ApplicationController
+  before_action :set_recipe, only: [:create, :new]
+  # before_action: :set_schedule_recipe, only: [:create, :new]
+
   def index
     @scheduled_recipes = ScheduledRecipe.all
   end
@@ -8,18 +11,29 @@ class ScheduledRecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.user = current_user
-    if @recipe.save
-      # redirect_to recipes_path(@recipe)
-    else
-      render "new"
-    end
+    @scheduled_recipe = ScheduledRecipe.new(scheduled_recipe_params)
+    @scheduled_recipe.user = current_user
+    @scheduled_recipe.recipe = @recipe
+    @scheduled_recipe.save
+
+
+      redirect_to recipe_scheduled_recipes_path
+    # else
+    #   render "new"
+    # end
   end
 
   private
 
-  def recipe_params
-    params.require(:scheduled_recipes).permit(:recipe_id, :user_id, :scheduled_date, :time_of_day)
+  def set_recipe
+    @recipe = Recipe.find(params[:recipe_id])
+  end
+
+  def set_schedule_recipe
+    @scheduled_recipe = ScheduledRecipe.find(params[:id])
+  end
+
+  def scheduled_recipe_params
+    params.require(:scheduled_recipe).permit(:scheduled_date, :time_of_day)
   end
 end
