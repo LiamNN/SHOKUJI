@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :recipe_methods, only: [:index, :new, :create, :destroy, :edit, :update]
     resources :reviews, only: [:index, :show, :new, :create]
     resources :scheduled_recipes, only: [:index, :new, :create]
+    resources :ingredients, only: [:index, :show]
   end
 
   get 'profiles/:id', to: 'profiles#show', as: :profile
