@@ -51,14 +51,21 @@ class RecipeCreator
     recipe_html = URI.open("https://www.kitchenstories.com#{link}").read
     doc = Nokogiri::HTML(recipe_html)
     hash = {}
+    hash2 = {}
     hash[:name] = doc.search(".recipe-title").children.text
     hash[:time] = doc.search(".time-container").children.text
+    doc.search(".recipe-nutrition__information").children.each do |nutr|
+      a = nutr.children[0].text
+      hash2[a] = nutr.children[2].text
+    end
+    hash[:macros] = hash2
+    hash[:servings] = doc.search(".stepper-value").children.text.to_i
     return hash
   end
 
   def new_recipe(array)
     array.each do |recipe|
-      Recipe.create(name: recipe[:details][:name], time: recipe[:details][:time], user_id: 1)
+      Recipe.create(name: recipe[:details][:name], time: recipe[:details][:time], user_id: 1, servings: recipe[:details][:servings], macros: recipe[:details][:macros])
       recipe[:method].values.each do |method|
         RecipeMethod.create(instructions: method, recipe_id: Recipe.last[:id])
       end
