@@ -3,4 +3,6 @@ class RecipeMethod < ApplicationRecord
 
   has_many :method_ingredients, dependent: :destroy
   has_many :ingredients, through: :method_ingredients
+
+  validates :instructions, presence: true
 end
