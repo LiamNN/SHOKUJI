@@ -1,0 +1,6 @@
+<div class="container p-3">
+  <h1 class='title' style='font-weight: 700;'>My recipes</h1>
+  <% current_user.scheduled_recipes.each do |scheduled_recipe| %>
+      <h4><%= scheduled_recipe.recipe.name %></h4>
+  <% end %>
+</div>
