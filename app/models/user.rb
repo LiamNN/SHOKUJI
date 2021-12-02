@@ -10,4 +10,6 @@ class User < ApplicationRecord
   has_many :scheduled_recipes
 
   accepts_nested_attributes_for :user_goals
+
+  acts_as_favoritor
 end

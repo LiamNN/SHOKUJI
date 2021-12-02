@@ -11,4 +11,5 @@ class Recipe < ApplicationRecord
   has_many :ingredients, dependent: :destroy
   has_many :scheduled_recipes, dependent: :destroy
 
+  acts_as_favoritable
 end

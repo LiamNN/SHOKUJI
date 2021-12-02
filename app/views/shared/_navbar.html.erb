@@ -45,7 +45,7 @@
             </div>
         </li>
         <li class="nav-item"><a href="/recipes" class="nav-link">Recipes</a></li>
-        <%# <li class="nav-item"> <%= link_to "My Recipes", recipe_scheduled_recipes_path, class: 'nav-link' %></li>
+        <%# <li class="nav-item"> <%= link_to "My Recipes", recipe_scheduled_recipes_path(recipe_id: params[:id]), class: 'nav-link' %></li>
         <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
         <% if current_user.present? %>
           <li class="nav-item"> <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link' %></li>

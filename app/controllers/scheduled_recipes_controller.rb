@@ -4,6 +4,7 @@ class ScheduledRecipesController < ApplicationController
 
   def index
     @scheduled_recipes = ScheduledRecipe.all
+    @favorites = current_user.favorited_by_type('Recipe')
   end
 
   def new

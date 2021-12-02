@@ -66,3 +66,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'nokogiri'
 gem "simple_calendar", "~> 2.4"
+gem 'acts_as_favoritor', github: 'jonhue/acts_as_favoritor'

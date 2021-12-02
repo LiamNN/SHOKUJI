@@ -6,6 +6,13 @@ GIT
     faker (2.19.0)
       i18n (>= 1.8.11, < 2)
 
+GIT
+  remote: https://github.com/jonhue/acts_as_favoritor.git
+  revision: 5be923b8daca1ae3ba35d6e00a61c7a97c555662
+  specs:
+    acts_as_favoritor (5.0.3)
+      activerecord (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -255,6 +262,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_favoritor!
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.4)
   byebug
