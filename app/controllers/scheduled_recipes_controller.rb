@@ -15,12 +15,8 @@ class ScheduledRecipesController < ApplicationController
     @scheduled_recipe.user = current_user
     @scheduled_recipe.recipe = @recipe
     @scheduled_recipe.save
-
-
       redirect_to recipe_scheduled_recipes_path
-    # else
-    #   render "new"
-    # end
+
   end
 
   private

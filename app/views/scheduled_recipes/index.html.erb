@@ -4,3 +4,9 @@
       <h4><%= scheduled_recipe.recipe.name %></h4>
   <% end %>
 </div>
+
+<div>
+  <%= week_calendar do |date| %>
+    <%= date.day %>
+  <% end %>
+</div>
