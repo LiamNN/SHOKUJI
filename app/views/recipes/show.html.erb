@@ -23,7 +23,8 @@
         <p style='color: rgba(0,0,0,0.8); font-weight: 700;'><%= @recipe.meal_time %></p>
       </div>
       <div class="container p-3" style="align-items: center; justify-content: left; display: flex;">
-        <a href="<% new_recipe_scheduled_recipe_path(params[:id]) %>" class="btn btn-ghost" style="height: 40px;">Save this recipe</a>
+
+        <%= link_to 'Save this recipe', new_recipe_scheduled_recipe_path(params[:id]) %>
       </div>
     </div>
     <div style="margin-left: 110px; margin-top: 15px;">
