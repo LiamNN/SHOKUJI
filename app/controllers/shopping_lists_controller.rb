@@ -3,7 +3,7 @@ class ShoppingListsController < ApplicationController
   def index
     @shopping_list = ShoppingList.all
   end
-  
+
   def new
     @shopping_lists = ShoppingList.new
   end
@@ -15,6 +15,7 @@ class ShoppingListsController < ApplicationController
       redirect_to shopping_lists_path
     else
       render "new"
+    end
   end
 
    private
