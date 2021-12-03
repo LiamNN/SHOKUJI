@@ -60,14 +60,17 @@ class RecipeCreator
     end
     hash[:macros] = hash2
     hash[:servings] = doc.search(".stepper-value").children.text.to_i
+    if doc.search(".page-header__image").first
+      hash[:photo] = doc.search(".page-header__image").first.attributes["src"].value
+    end
     return hash
   end
 
   def new_recipe(array)
     array.each do |recipe|
-      Recipe.create(name: recipe[:details][:name], time: recipe[:details][:time], user_id: 1, servings: recipe[:details][:servings], macros: recipe[:details][:macros])
+      Recipe.create(name: recipe[:details][:name], time: recipe[:details][:time], user_id: 1, servings: recipe[:details][:servings], macros: recipe[:details][:macros], photo: recipe[:details][:photo])
       recipe[:method].values.each do |method|
-        RecipeMethod.create(instructions: method, recipe_id: Recipe.last[:id])
+        RecipeMethod.create(instructions: method, recipe: Recipe.last)
       end
       recipe[:ingredients].each do |ing|
         Ingredient.create(name: ing[0], quantity: ing[1]&.chop, recipe_id: Recipe.last[:id])
