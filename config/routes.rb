@@ -17,8 +17,6 @@ Rails.application.routes.draw do
     resources :ingredients, only: [:index, :show]
   end
 
-  resources :user_scheduled_recipes, only: [:create]
-
   get 'profiles/:id', to: 'profiles#show', as: :profile
   post 'shopping_list', to: 'shopping_list#create'
   get 'shopping_list', to: 'shopping_list#new'
