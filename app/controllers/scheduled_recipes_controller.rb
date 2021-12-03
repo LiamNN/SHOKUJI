@@ -3,7 +3,7 @@ class ScheduledRecipesController < ApplicationController
   # before_action: :set_schedule_recipe, only: [:create, :new]
 
   def index
-    @scheduled_recipes = ScheduledRecipe.all
+    @scheduled_recipes = current_user.scheduled_recipes
     @favorites = current_user.favorited_by_type('Recipe')
   end
 
