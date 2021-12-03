@@ -4,6 +4,7 @@ class ScheduledRecipesController < ApplicationController
 
   def index
     @scheduled_recipes = ScheduledRecipe.all
+    @favorites = current_user.favorited_by_type('Recipe')
   end
 
   def new
@@ -15,12 +16,8 @@ class ScheduledRecipesController < ApplicationController
     @scheduled_recipe.user = current_user
     @scheduled_recipe.recipe = @recipe
     @scheduled_recipe.save
-
-
       redirect_to recipe_scheduled_recipes_path
-    # else
-    #   render "new"
-    # end
+
   end
 
   private

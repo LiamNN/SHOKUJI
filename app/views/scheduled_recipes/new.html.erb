@@ -1,1 +1,22 @@
+
+<%# render 'form', recipe: @recipe, scheduled_recipe: @scheduled_recipe %>
+
+
+<div class="container p-3">
+  <h1 class='title' style='font-weight: 700;'>Schedule: <%= @recipe.name %></h1>
+  <div>
+  <%= week_calendar do |date| %>
+      <%= date.day %>
+      <% current_user.scheduled_recipes.where(scheduled_date: date).each do |scheduled_recipe| %>
+        <p><b><%= scheduled_recipe.time_of_day %></b></p>
+        <p><%= scheduled_recipe.recipe.name %></p>
+      <% end %>
+      <% ["Breakfast", "Lunch", "Dinner"].each do |time_of_day| %>
+        <%= link_to "Add to #{time_of_day}", recipe_scheduled_recipes_path(@recipe, scheduled_recipe: {time_of_day: time_of_day, scheduled_date: date}), method: :post %>
+      <% end %>
+  <% end %>
+</div>
+</div>
+
 <%= render 'form', recipe: @recipe, scheduled_recipe: @scheduled_recipe %>
+

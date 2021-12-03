@@ -1,6 +1,43 @@
+
+<div class="row" style="margin-left: 100px; margin-top: 50px;" >
+  <%= link_to '< Back to Recipes', recipes_path, :style=>"color: rgba(0,0,0,1);"%>
+</div>
+
+<div class="container p-3">
+  <h1 class='title' style='font-weight: 700;'>My recipes</h1>
+  <div>
+    <%= week_calendar do |date| %>
+    <div style="height: 400px;">
+          <div style="height: 33%;">
+            <p>Breakfast</p>
+            <div class="recipe-slot" data-date="<%= date %>" data-time="breakfast" data-url="<%= user_scheduled_recipes_path %>" style="height: 100%;"></div>
+          </div>
+          <div style="height: 33%;">
+            <p>Lunch</p>
+            <div class="recipe-slot" data-date="<%= date %>" data-time="lunch" data-url="<%= user_scheduled_recipes_path %>" style="height: 100%;"></div>
+          </div>
+            <div style="height: 33%;">
+            <p>Dinner</p>
+            <div class="recipe-slot" data-date="<%= date %>" data-time="dinner" data-url="<%= user_scheduled_recipes_path %>" style="height: 100%;"></div>
+          </div>
+    </div>
+    <% end %>
+  </div>
+  <div>
+    <h1>Favorite Recipes</h1>
+      <div id="favorite-recipes" class="list-group">
+        <% @favorites.each do |recipe| %>
+          <div class="list-group-item" data-recipe="<%= recipe.id %>"><%= recipe.name %></div>
+        <% end %>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'calendar_sortable' %>
+
 <div class="container p-3">
   <h1 class='title' style='font-weight: 700;'>My recipes</h1>
   <% current_user.scheduled_recipes.each do |scheduled_recipe| %>
       <h4><%= scheduled_recipe.recipe.name %></h4>
   <% end %>
 </div>
+
