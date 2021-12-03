@@ -7,17 +7,15 @@ class ScheduledRecipesController < ApplicationController
     @favorites = current_user.favorited_by_type('Recipe')
   end
 
-  def new
-    @scheduled_recipe = ScheduledRecipe.new
-  end
-
   def create
     @scheduled_recipe = ScheduledRecipe.new(scheduled_recipe_params)
     @scheduled_recipe.user = current_user
     @scheduled_recipe.recipe = @recipe
     @scheduled_recipe.save
-      redirect_to recipe_scheduled_recipes_path
-
+    respond_to do |format|
+      format.html { redirect_to recipe_scheduled_recipes_path }
+      format.json { render json: @scheduled_recipe }
+    end
   end
 
   private

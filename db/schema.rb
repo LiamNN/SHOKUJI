@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_12_02_032858) do
     t.string "time"
     t.string "macros"
     t.integer "servings"
+    t.string "photo"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
