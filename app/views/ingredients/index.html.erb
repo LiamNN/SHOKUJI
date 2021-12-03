@@ -1,8 +1,10 @@
 <h1>Ingredients#index</h1>
 <p>Find me in app/views/ingredients/index.html.erb</p>
+<div class="container p-5">
+<%= link_to '< Back', recipe_path(params[:recipe_id]), :style=>"color: rgba(0,0,0,1);"%>
+<br>
+<br>
 <% @ingredients.each do |ingredient| %>
-  <%= link_to recipe_path(@recipe), class:'text-decoration-none' do %>
-    <h4><%= ingredient.name %></h4>
-    <p style='color: #476072;'><%= ingredient.macros %></p>
-  <% end %>
+  <h4><%= ingredient.name %> <%= ingredient.quantity %></h4>
 <% end %>
+</div>
