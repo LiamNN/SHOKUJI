@@ -1,0 +1,21 @@
+.simple-calendar .today {
+    background-color: transparent !important;
+}
+.simple-calendar .prev-month {
+    background-color: transparent !important;
+}
+
+.container-calendar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+    .calendar {
+      padding: 0 20px;
+      margin-left: 25px;
+    }
+}
+.fav-recipes {
+    padding: 0 20px;
+    margin-right: 25px;
+}

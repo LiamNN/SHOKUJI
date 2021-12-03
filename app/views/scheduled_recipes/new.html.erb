@@ -11,7 +11,7 @@
         <p><b><%= scheduled_recipe.time_of_day %></b></p>
         <p><%= scheduled_recipe.recipe.name %></p>
       <% end %>
-      <% ["Breakfast", "Lunch", "Dinner"].each do |time_of_day| %>
+      <% ["breakfast", "lunch", "dinner"].each do |time_of_day| %>
         <%= link_to "Add to #{time_of_day}", recipe_scheduled_recipes_path(@recipe, scheduled_recipe: {time_of_day: time_of_day, scheduled_date: date}), method: :post %>
       <% end %>
   <% end %>
