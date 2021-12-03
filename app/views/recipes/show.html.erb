@@ -6,11 +6,9 @@
 <div class='container'>
   <div class='container'>
     <div class="container p-3 d-flex">
-      <div class="container p-3 pl-7" style="max-width: 25%; justify-content: right; display: flex;">
-        <div style="height: 150px; width:150px; border-radius: 50%; overflow:hidden">
-          <img src=<%= %> style="height: 100%; width: 100%; object-fit: cover">
+        <div style="height: 150px; width:150px; border-radius: 50%; overflow:hidden; flex-shrink: 0">
+          <img src=<%= @recipe.photo %> style="height: 100%; width: 100%; object-fit: cover">
         </div>
-      </div>
       <div class="container p-3" style="">
         <h1 style="font-weight: 700;"><%= @recipe.name %></h1>
         <h5 style="color: rgba(100,100,100,0.7); font-weight: 700;">

@@ -264,10 +264,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-
-  acts_as_favoritor!
   acts-as-taggable-on (~> 8.1.0)
-
+  acts_as_favoritor!
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.4)
   byebug
@@ -301,4 +299,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.2.31
+   2.2.32
