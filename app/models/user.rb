@@ -11,5 +11,9 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :user_goals
 
+
   acts_as_favoritor
+
+  acts_as_taggable_on :tags
+
 end
