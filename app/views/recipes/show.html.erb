@@ -26,16 +26,22 @@
       </div>
       <div class="container p-3" style="align-items: center; justify-content: left; display: flex;">
 
-        
-
-        <%= link_to 'Save this recipe', new_recipe_scheduled_recipe_path(params[:id]) %>
-        
       <a href="<%=  new_recipe_review_path(@recipe) %>" class="btn btn-ghost" style="height: 40px;">Add review</a>
 
       </div>
     </div>
     <div style="margin-left: 110px; margin-top: 15px;">
       <p>
+      <% @recipe.ingredients.each do |ing| %>
+        <% if ing.quantity == nil %>
+          <%= ing.name.capitalize %>
+        <% else %>
+          <strong><%= ing.quantity %></strong> - <%= ing.name.capitalize %>
+        <% end %>
+        <br>
+      <% end %>
+        <br>
+        <br>
       <% @recipe.recipe_methods.each do |i| %>
         <%= i.instructions %>
         <br>
