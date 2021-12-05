@@ -54,8 +54,6 @@
       <br>
       <br>
       <%= link_to 'Edit Method', recipe_recipe_methods_path(recipe_id: params[:id]), :style=>"color: rgba(0,0,0,1);"%>
-      <br>
-      <%= link_to 'Ingredients', recipe_ingredients_path(recipe_id: params[:id]), :style=>"color: rgba(0,0,0,1);"%>
       </p>
     </div>
   </div>
@@ -74,7 +72,7 @@
       <% @recipe.reviews.each do |review| %>
         <div class="card p-3 pb-2 mb-3" style="">
           <div class="d-flex mb-4" style="justify-content: space-between;"><h6 style="color: rgba(0,0,0,0.5);">
-           <%= review.rating %>/10</h6>
+           <%= review.rating %></h6>
           </div>
           <p>' <%= review.content %> '</p>
         </div>

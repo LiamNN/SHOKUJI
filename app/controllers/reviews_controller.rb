@@ -10,8 +10,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.recipe = @recipe
     if @review.save
-      redirect_to recipe_path(@recipe.review)
+      redirect_to recipe_path(@recipe)
     else
+      flash[:alert] = "Something went wrong."
       render "new"
     end
   end
