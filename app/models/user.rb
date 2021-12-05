@@ -4,7 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :goals, through: :user_goal
+  has_many :user_goals
+  has_many :goals, through: :user_goals
   has_many :recipes
   has_many :scheduled_recipes
+
+  accepts_nested_attributes_for :user_goals
+
+
+  acts_as_favoritor
+
+  # acts_as_taggable_on :tags
+
 end

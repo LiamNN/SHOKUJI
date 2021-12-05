@@ -1,10 +1,17 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 2a6f0cc9bbde4b6b857505028fcaf10ca79d8e65
+  revision: 27bef252eb378f8910d4966263f6cda2db73727b
   branch: master
   specs:
     faker (2.19.0)
       i18n (>= 1.8.11, < 2)
+
+GIT
+  remote: https://github.com/jonhue/acts_as_favoritor.git
+  revision: 5be923b8daca1ae3ba35d6e00a61c7a97c555662
+  specs:
+    acts_as_favoritor (5.0.3)
+      activerecord (>= 5.0)
 
 GEM
   remote: https://rubygems.org/
@@ -68,6 +75,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts-as-taggable-on (8.1.0)
+      activerecord (>= 5.0, < 6.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     autoprefixer-rails (10.2.5.0)
@@ -206,6 +215,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
     semantic_range (3.0.0)
+    simple_calendar (2.4.3)
+      rails (>= 3.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -253,6 +264,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 8.1.0)
+  acts_as_favoritor!
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.4)
   byebug
@@ -263,6 +276,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  nokogiri
   pg (~> 1.1)
   pry-byebug
   pry-rails
@@ -272,6 +286,7 @@ DEPENDENCIES
   redis (~> 4.0)
   sass-rails (>= 6)
   selenium-webdriver
+  simple_calendar (~> 2.4)
   simple_form
   spring
   turbolinks (~> 5)
@@ -284,4 +299,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.2.31
+   2.2.32

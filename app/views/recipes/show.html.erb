@@ -1,5 +1,4 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h1>Recipes</h1>
 
 <div class="row" style="margin-left: 100px; margin-top: 50px;" >
   <%= link_to '< Back', recipes_path, :style=>"color: rgba(0,0,0,1);"%>
@@ -7,24 +6,51 @@
 <div class='container'>
   <div class='container'>
     <div class="container p-3 d-flex">
-      <div class="container p-3 pl-7" style="max-width: 25%; justify-content: right; display: flex;">
-        <div style="height: 150px; width:150px; border-radius: 50%; overflow:hidden">
-          <img src=<%= %> style="height: 100%; width: 100%; object-fit: cover">
+        <div style="height: 150px; width:150px; border-radius: 50%; overflow:hidden; flex-shrink: 0">
+          <img src=<%= @recipe.photo %> style="height: 100%; width: 100%; object-fit: cover">
         </div>
-      </div>
       <div class="container p-3" style="">
         <h1 style="font-weight: 700;"><%= @recipe.name %></h1>
         <h5 style="color: rgba(100,100,100,0.7); font-weight: 700;">
-          <%= @recipe.time %> minutes</h5>
+
+          <%= @recipe.time.split(".").first %> preparation<br>
+          <%= @recipe.time.split(".")[1] %> cooking<br>
+          <%= @recipe.time.split(".").last %> resting<br>
+          <br>
+          <%= @recipe.servings %> servings</h5>
+          <%= link_to toggle_favorite_recipe_path(@recipe), remote: true, method: :post do %>
+            <%= render 'like_button', recipe: @recipe %>
+          <% end %>
+
         <p style='color: rgba(0,0,0,0.8); font-weight: 700;'><%= @recipe.meal_time %></p>
       </div>
       <div class="container p-3" style="align-items: center; justify-content: left; display: flex;">
-        <a href="<% new_recipe_scheduled_recipe_path(params[:id]) %>" class="btn btn-ghost" style="height: 40px;">Save this recipe</a>
-        <a href="<%=  new_recipe_review_path(@recipe) %>" class="btn btn-ghost" style="height: 40px;">Add review</a>
+
+        
+
+        <%= link_to 'Save this recipe', new_recipe_scheduled_recipe_path(params[:id]) %>
+        
+      <a href="<%=  new_recipe_review_path(@recipe) %>" class="btn btn-ghost" style="height: 40px;">Add review</a>
+
       </div>
     </div>
     <div style="margin-left: 110px; margin-top: 15px;">
-      <p><%= @recipe.recipe_methods %></p>
+      <p>
+      <% @recipe.recipe_methods.each do |i| %>
+        <%= i.instructions %>
+        <br>
+        <br>
+      <% end %>
+      <% (JSON.parse @recipe.macros.gsub('=>', ':')).values.each_with_index do |v, i| %>
+        <%= v %> <%= (JSON.parse @recipe.macros.gsub('=>', ':')).keys[i] %>
+        <br>
+      <% end %>
+      <br>
+      <br>
+      <%= link_to 'Edit Method', recipe_recipe_methods_path(recipe_id: params[:id]), :style=>"color: rgba(0,0,0,1);"%>
+      <br>
+      <%= link_to 'Ingredients', recipe_ingredients_path(recipe_id: params[:id]), :style=>"color: rgba(0,0,0,1);"%>
+      </p>
     </div>
   </div>
   <div>
@@ -51,3 +77,4 @@
   </div>
 
 </div>
+<%= javascript_pack_tag 'toggle_like' %>

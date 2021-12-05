@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
    before_action :set_recipe, only: [:show, :destroy, :edit, :update]
+   before_action :authenticate_user!, only: :toggle_favorite
 
   def index
     @recipes = Recipe.all
@@ -33,6 +34,11 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     redirect_to recipes_path
+  end
+
+    def toggle_favorite
+    @recipe = Recipe.find_by(id: params[:id])
+    current_user.favorited?(@recipe) ? current_user.unfavorite(@recipe) : current_user.favorite(@recipe)
   end
 
   private

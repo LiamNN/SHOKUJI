@@ -8,21 +8,6 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-5.times do
-  Recipe.create(
-    name: Faker::Food.dish,
-    meal_time: ['Breakfast', 'Lunch', 'Dinner'].sample,
-    time: rand(5..45),
-    user_id: 1
-  )
-end
-
-5.times do
-  Ingredient.create(
-    name: Faker::Food.ingredient,
-    # macros:,
-    # photo:
-  )
-end
+RecipeCreator.new.scrape_recipes
 
 puts 'Finished!'

@@ -1,7 +1,13 @@
-<% if user_signed_in? %>
-  <%= link_to 'User (edit)',  edit_user_registration_path %>
-  <%= link_to 'User (show)', profile_path(current_user) %>
-<% end %>
- <% if @recipe %>
+<%# <% if user_signed_in? %>
+  <%# <%= link_to 'User (edit)',  edit_user_registration_path %>
+  <%# <%= link_to 'User (show)', profile_path(current_user) %>
+<%# <% end %>
 
-  <% end %>
+
+<%= render 'shared/banner' %>
+<div class="container" style="justify-content: center;">
+  <div class="card p-3 pb-2 mb-3" style="">
+    <h2>Save money and time!</h2>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, reprehenderit. Odit culpa officiis quo, illum modi ea aspernatur ducimus libero ab architecto tempore laudantium corrupti dolor, quidem ipsam sit tempora.</p>
+  </div>
+</div>
