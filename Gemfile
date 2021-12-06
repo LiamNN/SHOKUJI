@@ -70,4 +70,4 @@ gem "simple_calendar", "~> 2.4"
 gem 'acts_as_favoritor', github: 'jonhue/acts_as_favoritor'
 
 gem 'acts-as-taggable-on', '~> 8.1.0'
-
+gem 'httparty'
