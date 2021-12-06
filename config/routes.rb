@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
 
-
+  resources :shopping_lists, only: [:index, :new, :create]
   resources :goals, only: [:index, :show]
   resources :user_goals, only: [:new, :create]
   resources :recipes do
@@ -18,9 +18,5 @@ Rails.application.routes.draw do
   end
 
   resources :scheduled_recipes, only: [:index]
-
-  get 'profiles/:id', to: 'profiles#show', as: :profile
-  post 'shopping_list', to: 'shopping_list#create'
-  get 'shopping_list', to: 'shopping_list#new'
 
 end

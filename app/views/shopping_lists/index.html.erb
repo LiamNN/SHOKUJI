@@ -1,0 +1,10 @@
+<% @scheduled_recipes.each do |sr| %>
+  <% sr.recipe.ingredients.each do |ing| %>
+    <% if ing.quantity == nil %>
+      <%= ing.name.capitalize %>
+    <% else %>
+      <strong><%= ing.quantity %></strong> - <%= ing.name.capitalize %>
+    <% end %>
+      <br>
+  <% end %>
+<% end %>
