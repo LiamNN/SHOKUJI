@@ -1,10 +1,15 @@
+<div class="container">
 <% ingredients = IngCompiler.new.turn_to_hash(@scheduled_recipes.all)%>
-  <% ingredients.each do |ing| %>
-    <% if ing.quantity == nil %>
-      <%= ing.name.capitalize %>
+  <% ingredients.each do |name, val| %>
+    <% if val[:qty] == 0 %>
+      <%= name.capitalize.chop %>
     <% else %>
-      <strong><%= ing.quantity %></strong> - <%= ing.name.capitalize %>
+      <% if val[:measurement] == 0 || val[:measurement].nil? %>
+        <strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize %>
+      <% else %>
+        <strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize.singularize %>
+      <% end %>
     <% end %>
       <br>
   <% end %>
-<% end %>
+  </div>
