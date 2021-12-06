@@ -7,6 +7,7 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create(email: "liamngn2@gmail.com", password: "liamnn")
 
 RecipeCreator.new.scrape_recipes
 
