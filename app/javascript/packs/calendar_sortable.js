@@ -14,20 +14,10 @@ const calendarSortable = () => {
     });
   }
 
-  var parent = document.getElementsByClassName('parent');
-  new Sortable(parent[0], {
-    group: {
-      name: 'parent-group'
-    },
-    forceFallback: true,
-    fallbackClass: 'clone',
-  });
-  
   document.querySelectorAll(".recipe-slot").forEach(element => {
     Sortable.create(element, {
       group: "shared",
       pull: "clone",
-      // put: true,
       forceFallback: true,
       sort: false,
       onAdd: function (e, ui) {
@@ -38,15 +28,12 @@ const calendarSortable = () => {
         Rails.ajax({
           headers: {
             'Content-Type': 'application/json'
-            // 'Content-Type': 'application/x-www-form-urlencoded',
           },
           url: e.item.dataset.url,
           type: "post",
           data: formData,
-          success: function (data) {
-            console.log(data)
-          },
-          error: function (data) {
+          success: () => {
+            window.location.reload()
           }
         })
       }

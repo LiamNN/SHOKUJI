@@ -1,28 +1,80 @@
-.simple-calendar .today {
-    background-color: transparent !important;
-}
-.simple-calendar .prev-month {
-    background-color: transparent !important;
-}
-
 .container-calendar {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  padding: 0 24px;
 
-    .calendar {
-      padding: 0 20px;
-      margin-left: 25px;
+  .calendar {
+    max-width: 70%;
+    position: relative;
+    overflow-y: hidden;
+
+    .simple-calendar {
+      max-width: 100%;
+      overflow-x: scroll;
+      padding-top: 36px;
+      overflow-y: hidden;
+
+      .calendar-heading {
+        position: absolute;
+        top: 56px;
+      }
+
+      .today {
+        background-color: transparent !important;
+      }
+
+      .prev-month {
+        background-color: transparent !important;
+      }
     }
+  }
 }
+
 .fav-recipes {
-    padding: 0 20px;
-    margin-right: 25px;
+  padding-left: 24px;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+
+  li {
+    cursor: grab;
+    align-items: center;
+    border: 1px solid transparent;
+    padding: 8px;
+
+    &.sortable-chosen {
+      background-color: #e0f3e0;
+      border: 1px solid lightgray;
+      cursor: grabbing;
+    }
+  }
+}
+
+.schedule-recipe-calendar {
+  height: 60vh;
+  width: 180px;
+
+  .time-slot {
+    height: 33.3%;
+    padding-bottom: 48px;
+
+    > div {
+      height: 100%;
+      background-color: transparent;
+    }
+
+    .recipe-slot {
+      background-color: #6c757d1f;
+    }
+  }
 }
 
 .sortable-fallback {
   color: red;
   background: none;
+  box-sizing:10px;
 }
 
 .delete .fas {

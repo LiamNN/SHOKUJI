@@ -1,6 +1,6 @@
 class ScheduledRecipesController < ApplicationController
-  before_action :set_recipe, only: [:create, :new]
-  before_action :set_schedule_recipe, only: [:destroy]
+  before_action :set_recipe, only: [:create, :new, :edit, :update]
+  before_action :set_schedule_recipe, only: [:destroy, :edit, :update]
 
   def index
     @scheduled_recipes = current_user.scheduled_recipes
@@ -17,6 +17,16 @@ class ScheduledRecipesController < ApplicationController
       format.json { render json: @scheduled_recipe }
     end
   end
+
+  def edit
+  end
+
+  def update
+    @scheduled_recipe.update(recipe_params)
+    redirect_to scheduled_recipes_path
+  end
+
+
 
   def destroy
     @scheduled_recipe.destroy
