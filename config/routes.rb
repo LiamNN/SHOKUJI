@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
     resources :recipe_methods, only: [:index, :new, :create, :destroy, :edit, :update]
     resources :reviews, only: [:index, :show, :new, :create]
-    resources :scheduled_recipes, only: [:new, :create]
+    resources :scheduled_recipes, only: [:new, :create, :destroy]
     resources :ingredients, only: [:index, :show]
   end
 

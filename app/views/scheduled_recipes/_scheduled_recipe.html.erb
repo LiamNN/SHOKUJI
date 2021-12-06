@@ -1,3 +1,12 @@
+
 <div style="">
-  <p> <small><%= scheduled_recipe.recipe.name %></small></p>
+<div>
+  
+</div>
+
+
+  <small><%= scheduled_recipe.recipe.name %></small>
+  <%= link_to recipe_scheduled_recipe_path(scheduled_recipe.recipe, scheduled_recipe), method: :delete do %>
+      <i class="fas fa-times"></i>
+    <% end %>
 </div>
