@@ -1,7 +1,7 @@
 import Sortable from 'sortablejs';
 import Rails from "@rails/ujs";
 
-document.addEventListener('turbolinks:load', () => {
+const calendarSortable = () => {
   const favoriteRecipes = document.getElementById("favorite-recipes");
   if (favoriteRecipes) {
     Sortable.create(favoriteRecipes, {
@@ -14,10 +14,21 @@ document.addEventListener('turbolinks:load', () => {
     });
   }
 
+  var parent = document.getElementsByClassName('parent');
+  new Sortable(parent[0], {
+    group: {
+      name: 'parent-group'
+    },
+    forceFallback: true,
+    fallbackClass: 'clone',
+  });
+  
   document.querySelectorAll(".recipe-slot").forEach(element => {
     Sortable.create(element, {
       group: "shared",
       pull: "clone",
+      // put: true,
+      forceFallback: true,
       sort: false,
       onAdd: function (e, ui) {
         let formData = new FormData()
@@ -41,4 +52,6 @@ document.addEventListener('turbolinks:load', () => {
       }
     });
   });
-});
+};
+
+export { calendarSortable }

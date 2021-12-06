@@ -25,7 +25,8 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
 // Default SortableJS
-import Sortable from 'sortablejs';
+
+import { calendarSortable } from './calendar_sortable';
 
 // // Core SortableJS (without default plugins)
 // import Sortable from 'sortablejs/modular/sortable.core.esm.js';
@@ -44,14 +45,13 @@ import Sortable from 'sortablejs';
 
 // Sortable.mount(new AutoScroll());
 
+import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initStarRating();
+  calendarSortable();
 
   // });
 });
-
-import { initStarRating } from '../plugins/init_star_rating';
-
-initStarRating();

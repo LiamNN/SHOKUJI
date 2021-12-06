@@ -10,7 +10,7 @@
   <div class="calendar">
     <h1 class="text-center">My recipes</h1>
     <%= week_calendar do |date| %>
-    <div style="height: 400px;">
+    <div class="parent" style="height: 400px;">
           <div style="height: 33%;">
             <p>Breakfast</p>
             <div class="recipe-slot" data-date="<%= date %>" data-time="breakfast" style="height: 100%;">
@@ -43,11 +43,11 @@
     <div>See all your recipes</div>
       <div id="favorite-recipes" class="list-group">
         <% @favorites.each do |recipe| %>
-          <div class="list-group-item" data-url="<%= recipe_scheduled_recipes_path(recipe, format: :json) %>"> <%= recipe.name %></div>
+          <div class="list-group-item" data-url="<%= recipe_scheduled_recipes_path(recipe, format: :json) %>">
+            <%= recipe.name %>
+          </div>
         <% end %>
   </div>
 </div>
 
 <%= javascript_pack_tag 'calendar_sortable' %>
-
-
