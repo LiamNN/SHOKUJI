@@ -17,23 +17,17 @@ class IngCompiler
     newhash = {}
     array.each do |ing_list|
       ing_list.each do |ing|
-        if arraynames.include?(ing.name)
-          i = arraynames.index(ing.name)
-          unless ing.quantity.nil?
-            if ing.quantity.split.count > 1
-              arrayqty[i] = "#{arrayqty[i].split.first.to_i + ing.quantity.split.first.to_i} #{arrayqty[i].split.last}"
-            else
-              arrayqty[i] = (arrayqty[i].split.first.to_i + ing.quantity.split.first.to_i).to_s
-            end
-          end
+        name = ing.name.downcase.pluralize
+        qty = 0 if ing.quantity.nil?
+        qty = ing.quantity.split.first.to_i if ing.quantity.present?
+        measurement = ing.quantity.split.second if ing.quantity.present?
+        measurement = 0 if ing.quantity.nil?
+        if newhash[name]
+          newhash[name][:qty] += qty
         else
-          arraynames << ing.name
-          arrayqty << ing.quantity
+          newhash[name] = {qty: qty, measurement: measurement}
         end
       end
-    end
-    arraynames.each_with_index do |name, i|
-      newhash[name] = arrayqty[i]
     end
     newhash
   end
