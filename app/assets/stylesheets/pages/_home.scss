@@ -1,1 +1,19 @@
 // Specific CSS for your home-page
+.main-container {
+  background-image: url('https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2896&q=80');
+    height: calc(100vh - 60px);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 32px;
+
+  .container-body {
+    padding: 0 24px;
+    background: transparent;
+    .card {
+      opacity: 0.6;
+      color: black;
+    }
+  }
+}
