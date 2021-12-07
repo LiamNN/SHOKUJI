@@ -16,8 +16,13 @@
 @import "components/buttons";
 
 
-.like-icon.red {
-  color: red;
+.like-icon {
+
+    color: lightgray;
+
+  &.red {
+      color: red;
+  }
 }
 
 .list-group-item {
