@@ -1,0 +1,30 @@
+<% ingredients = IngCompiler.new.turn_to_hash(@scheduled_recipes.where(scheduled_date: @shopping_list.dates))%>
+  <% ingredients.each do |name, val| %>
+    <% if val[:qty] == 0 %>
+      <% if val[:need] == true %>
+        <a onclick=<% val[:need] = false%>>
+          <i id="check" class="far fa-check-circle"></i>&nbsp;&nbsp;&nbsp;<%= name.capitalize.chop %>
+        </a>
+      <% else %>
+        <a onclick=<% val[:need] = false%>>
+          <i class="far fa-circle"></i>&nbsp;&nbsp;&nbsp;<%= name.capitalize.chop %>
+        </a>
+      <% end %>
+    <% else %>
+      <% if val[:measurement] == 0 || val[:measurement].nil? %>
+        <% if val[:need] == true %>
+          <i class="far fa-check-circle"></i>&nbsp;&nbsp;&nbsp;<strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize %>
+        <% else %>
+          <i class="far fa-circle"></i>&nbsp;&nbsp;&nbsp;<strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize %>
+        <% end %>
+      <% else %>
+        <% if val[:need] == true %>
+          <i class="far fa-check-circle"></i>&nbsp;&nbsp;&nbsp;<strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize.singularize %>
+        <% else %>
+          <i class="far fa-circle"></i>&nbsp;&nbsp;&nbsp;<strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize.singularize %>
+        <% end %>
+      <% end %>
+    <% end %>
+      <br>
+  <% end %>
+  </div>

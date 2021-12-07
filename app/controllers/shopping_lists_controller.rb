@@ -1,5 +1,4 @@
 class ShoppingListsController < ApplicationController
-  before_action :set_recipe, only: [:create, :new]
   before_action :set_schedule_recipe, only: [:create, :new]
 
   def index
@@ -7,31 +6,34 @@ class ShoppingListsController < ApplicationController
   end
 
   def new
-    @shopping_lists = ShoppingList.new
+    @shopping_list = ShoppingList.new
+    @scheduled_recipes = current_user.scheduled_recipes
   end
 
   def create
+    @scheduled_recipes = current_user.scheduled_recipes
     @shopping_list = ShoppingList.new(shopping_list_params)
-    @shopping_list.user = current_user
+    @shopping_list.body = @scheduled_recipes.where(scheduled_date: shopping_list_params)
     if @shopping_list.save
-      redirect_to shopping_lists_path
+      redirect_to shopping_list_path(@shopping_list)
     else
       render "new"
     end
   end
 
-   private
-
-  def set_recipe
-    @recipe = Recipe.find(params[:recipe_id])
+  def show
+    @scheduled_recipes = current_user.scheduled_recipes
+    @shopping_list = ShoppingList.find(params[:id])
   end
 
+   private
+
   def set_schedule_recipe
-    @scheduled_recipe = ScheduledRecipe.find(params[:id])
+    @scheduled_recipe = current_user.scheduled_recipes
   end
 
   def shopping_list_params
-    params.require(:shopping_list).permit(:recipe_id, :user_id, :scheduled_date, :time_of_day)
+    params.require(:shopping_list).permit(:user_id, :dates)
   end
 
 end

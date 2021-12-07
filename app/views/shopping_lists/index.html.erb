@@ -1,4 +1,15 @@
 <div class="container">
+
+<%= link_to Date.today.strftime("%A"), shopping_lists_path, :style=>"color: rgba(0,0,0,1);"%>&nbsp;&nbsp;
+<%= link_to (Date.today + 1).strftime("%A"), shopping_lists_path, :style=>"color: rgba(0,0,0,1);"%>&nbsp;&nbsp;
+<%= link_to (Date.today + 2).strftime("%A"), shopping_lists_path, :style=>"color: rgba(0,0,0,1);"%>&nbsp;&nbsp;
+<%= link_to (Date.today + 3).strftime("%A"), shopping_lists_path, :style=>"color: rgba(0,0,0,1);"%>&nbsp;&nbsp;
+<%= link_to (Date.today + 4).strftime("%A"), shopping_lists_path, :style=>"color: rgba(0,0,0,1);"%>&nbsp;&nbsp;
+<%= link_to (Date.today + 5).strftime("%A"), shopping_lists_path, :style=>"color: rgba(0,0,0,1);"%>&nbsp;&nbsp;
+<%= link_to (Date.today + 6).strftime("%A"), shopping_lists_path, :style=>"color: rgba(0,0,0,1);"%>
+<br>
+<br>
+
 <% ingredients = IngCompiler.new.turn_to_hash(@scheduled_recipes.all)%>
   <% ingredients.each do |name, val| %>
     <% if val[:qty] == 0 %>
@@ -12,4 +23,4 @@
     <% end %>
       <br>
   <% end %>
-  </div>
+</div>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "registrations" }
 
-  resources :shopping_lists, only: [:index, :new, :create]
+  resources :shopping_lists, only: [:index, :new, :create, :show]
   resources :goals, only: [:index, :show]
   resources :user_goals, only: [:new, :create]
   resources :recipes do
