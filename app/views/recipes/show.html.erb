@@ -1,5 +1,3 @@
-<h1>Recipes</h1>
-
 <div class="row" style="margin-left: 100px; margin-top: 50px;" >
   <%= link_to '< Back', recipes_path, :style=>"color: rgba(0,0,0,1);"%>
 </div>
@@ -26,10 +24,11 @@
       </div>
       <div class="container p-3" style="align-items: center; justify-content: left; display: flex;">
 
-      <a href="<%=  new_recipe_review_path(@recipe) %>" class="btn btn-ghost" style="height: 40px;">Add review</a>
+      <a href="<%=  new_recipe_review_path(@recipe) %>" class="btn btn-dark">Add review</a>
 
       </div>
     </div>
+
     <div style="margin-left: 110px; margin-top: 15px;">
       <p>
       <% @recipe.ingredients.each do |ing| %>
@@ -47,21 +46,25 @@
         <br>
         <br>
       <% end %>
-      <% (JSON.parse @recipe.macros.gsub('=>', ':')).values.each_with_index do |v, i| %>
-        <%= v %> <%= (JSON.parse @recipe.macros.gsub('=>', ':')).keys[i] %>
-        <br>
-      <% end %>
-      <br>
-      <br>
-      <%= link_to 'Edit Method', recipe_recipe_methods_path(recipe_id: params[:id]), :style=>"color: rgba(0,0,0,1);"%>
-      </p>
+
+      <div class="card border-light mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+          <%# <h5 class="card-title">Nutritional Information</h5> %>
+          <div class="card-header">Nutritional Information</div>
+          <p class="card-text">
+            <% (JSON.parse @recipe.macros.gsub('=>', ':')).values.each_with_index do |v, i| %>
+            <%= v %> <%= (JSON.parse @recipe.macros.gsub('=>', ':')).keys[i] %>
+            <br>
+            <% end %>
+          </p>
+        </div>
+      </div>
     </div>
+
   </div>
-  <div>
-      <%= button_to 'Delete Recipe', recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure you want to remove this recipe?"} ,class: "btn btn-ghost px-2 mx-auto", style:"width: 130px;" %>
-    </div>
   <br>
-  <div class="container" style="justify-content: center;">
+  <div class="container p-3" style="justify-content: center;">
+
     <h4 class="pt-5 pb-3" style="justify-content: center; display: flex; font-weight: 700;">Reviews</h4>
     <% if @recipe.reviews.length == 0  %>
       <div style="justify-content: center; display: flex;">
@@ -74,11 +77,15 @@
           <div class="d-flex mb-4" style="justify-content: space-between;"><h6 style="color: rgba(0,0,0,0.5);">
            <%= review.rating %></h6>
           </div>
-          <p>' <%= review.content %> '</p>
+          <p> <%= review.content %> </p>
         </div>
       <% end %>
     </div>
   </div>
 
-</div>
 <%= javascript_pack_tag 'toggle_like' %>
+
+ <%# <div>
+      <%# <%= link_to 'Edit Method', recipe_recipe_methods_path(recipe_id: params[:id]), :style=>"color: rgba(0,0,0,1);"%>
+      <%# <%= button_to 'Delete Recipe', recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure you want to remove this recipe?"} ,class: "btn btn-dark px-2 mx-auto", style:"width: 130px;" %>
+    <%# </div> %>

@@ -6,7 +6,7 @@
         <%= simple_form_for [@recipe, @scheduled_recipe] do |f| %>
           <%= f.input :time_of_day, :collection => ["Breakfast", "Lunch", "Dinner"]%>
           <%= f.input :scheduled_date %>
-          <%= f.submit class: 'btn btn-ghost' %>
+          <%= f.submit class: 'btn btn-dark' %>
         <% end %>
       </div>
     </div>
