@@ -1,15 +1,82 @@
+<div class="row row-centered d-flex" style="margin-left: auto; margin-right: auto; justify-content: center;">
+  <%= link_to shopping_lists_path, class:'text-decoration-none p-3' do %>
+    <div class="card p-1" style="text-align: center; width: 150px;">
+      Weekly
+    </div>
+  <% end %>
+  <%= link_to shopping_lists_path(Date.today), class:'text-decoration-none p-3' do %>
+    <div class="card p-1" style="text-align: center; width: 150px;">
+      <%= Date.today.strftime("%A") %>
+    </div>
+  <% end %>
+  <%= link_to shopping_lists_path(Date.today + 1), class:'text-decoration-none p-3' do %>
+    <div class="card p-1" style="text-align: center; width: 150px;">
+      <%= (Date.today + 1).strftime("%A") %>
+    </div>
+  <% end %>
+  <%= link_to shopping_lists_path(Date.today + 2), class:'text-decoration-none p-3' do %>
+    <div class="card p-1" style="text-align: center; width: 150px;">
+      <%= (Date.today + 2).strftime("%A") %>
+    </div>
+  <% end %>
+  <%= link_to shopping_lists_path(Date.today + 3), class:'text-decoration-none p-3' do %>
+    <div class="card p-1" style="text-align: center; width: 150px;">
+      <%= (Date.today + 3).strftime("%A") %>
+    </div>
+  <% end %>
+  <%= link_to shopping_lists_path(Date.today + 4), class:'text-decoration-none p-3' do %>
+    <div class="card p-1" style="text-align: center; width: 150px;">
+      <%= (Date.today + 4).strftime("%A") %>
+    </div>
+  <% end %>
+  <%= link_to shopping_lists_path(Date.today + 5), class:'text-decoration-none p-3' do %>
+    <div class="card p-1" style="text-align: center; width: 150px;">
+      <%= (Date.today + 5).strftime("%A") %>
+    </div>
+  <% end %>
+  <%= link_to shopping_lists_path(Date.today + 6), class:'text-decoration-none p-3' do %>
+    <div class="card p-1" style="text-align: center; width: 150px;">
+      <%= (Date.today + 6).strftime("%A") %>
+    </div>
+  <% end %>
+</div>
 <div class="container">
-<% ingredients = IngCompiler.new.turn_to_hash(@scheduled_recipes.all)%>
-  <% ingredients.each do |name, val| %>
-    <% if val[:qty] == 0 %>
-      <%= name.capitalize.chop %>
-    <% else %>
-      <% if val[:measurement] == 0 || val[:measurement].nil? %>
-        <strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize %>
+
+<br>
+<br>
+<% if params[:format].nil? %>
+  <% ingredients = IngCompiler.new.turn_to_hash(@scheduled_recipes.all)%>
+    <% ingredients.each do |name, val| %>
+      <% if val[:qty] == 0 %>
+        <%= name.capitalize.chop %>
       <% else %>
-        <strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize.singularize %>
+        <% if val[:measurement] == 0 || val[:measurement].nil? %>
+          <strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize %>
+        <% else %>
+          <strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize.singularize %>
+        <% end %>
+      <% end %>
+        <br>
+    <% end %>
+  </div>
+<% else %>
+  <% ingredients = IngCompiler.new.turn_to_hash(@scheduled_recipes.where(scheduled_date: params[:format]).all)%>
+    <% if ingredients == {} %>
+      There are no recipes scheduled for this day.
+    <% else %>
+      <% ingredients.each do |name, val| %>
+        <% if val[:qty] == 0 %>
+          <%= name.capitalize.chop %>
+        <% else %>
+          <% if val[:measurement] == 0 || val[:measurement].nil? %>
+            <strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize %>
+          <% else %>
+            <strong><%= val[:qty] %> <%= val[:measurement] %></strong> - <%= name.capitalize.singularize %>
+          <% end %>
+        <% end %>
+          <br>
       <% end %>
     <% end %>
-      <br>
-  <% end %>
-  </div>
+<% end %>
+
+</div>

@@ -12,8 +12,6 @@ class IngCompiler
   end
 
   def adding(array)
-    arraynames = []
-    arrayqty = []
     newhash = {}
     array.each do |ing_list|
       ing_list.each do |ing|
@@ -25,12 +23,10 @@ class IngCompiler
         if newhash[name]
           newhash[name][:qty] += qty
         else
-          newhash[name] = {qty: qty, measurement: measurement}
+          newhash[name] = { qty: qty, measurement: measurement, need: true }
         end
       end
     end
     newhash
   end
-
-
 end
