@@ -17,8 +17,10 @@
   </head>
 
   <body>
+    <% unless action_name == "home" %>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+     <% end %>
 
     <div style="min-height: calc(100vh - 60px);">
       <%= yield %>
