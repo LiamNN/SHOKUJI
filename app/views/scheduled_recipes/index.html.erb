@@ -1,6 +1,7 @@
 <div class="container-calendar">
   <div class="calendar">
     <h2 class>Plan your meals</h2>
+    <h4>Schedule</h4>
     <%= week_calendar do |date| %>
       <div class="schedule-recipe-calendar">
         <div class="time-slot" style="height: 33%;">
@@ -31,11 +32,12 @@
     <% end %>
   </div>
   <div class="fav-recipes">
-    <h2 class="text-center">Favorite Recipes</h2>
+    <h4 class="text-center">Favorite Recipes</h4>
     <ul id="favorite-recipes" class="list-unstyled">
       <% @favorites.each do |recipe| %>
         <li class="media" data-url="<%= recipe_scheduled_recipes_path(recipe, format: :json) %>">
-          <img class="mr-3" src="<%= recipe.photo %>" alt="<%= recipe.name %>" style="height: 50px; width: 50px;">
+        <div style="background-image: url('<%= recipe.photo %>')">
+        </div>
           <div class="media-body">
             <h5 class="mt-0 mb-1"><%= recipe.name %></h5>
           </div>
