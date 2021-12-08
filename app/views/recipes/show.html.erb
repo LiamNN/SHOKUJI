@@ -2,64 +2,76 @@
   <%= link_to '< Back', recipes_path, :style=>"color: rgba(0,0,0,1);"%>
 <%# </div>  %>
 
-<div class="photo" style="background-image: url('<%= @recipe.photo %>')"></div>
-<div class="row">
-  <div class="col-md-8 offset-md-2">
-    <div class="card mb-3">
-
-        <h2 class="card-title line-clamp-2 pl-3 pr-3">
-          <%= @recipe.name %>
-            <%= link_to toggle_favorite_recipe_path(@recipe), remote: true, method: :post do %>
-              <%= render 'like_button', recipe: @recipe %>
-            <% end %>
-        </h2>
-      <div class="card-body">
-        <p class="card-text">
-          <small class="text-muted">
-            <span class="badge badge-light">Preparation <br><%= @recipe.time.split(".").first %></span>
-            <span class="badge badge-light">Cooking <br><%= @recipe.time.split(".")[1] %></span>
-            <span class="badge badge-light">Resting <br><%= @recipe.time.split(".").last %></span>
-            <span class="badge badge-light">Servings<br><%= @recipe.servings %> </span>
-          </small>
-        </p>
-      </div>
-
+<div class="photo" style="background-image: url('<%= @recipe.photo %>')">
+<div class="container-photo">
+  <div class="card-body">
+      <h2 class="card-title line-clamp-2 pr-3">
+        <%= @recipe.name %>
+          <%= link_to toggle_favorite_recipe_path(@recipe), remote: true, method: :post do %>
+            <%= render 'like_button', recipe: @recipe %>
+          <% end %>
+      </h2>
+      <small>
+        <div>
+          <div>Preparation</div>
+          <div><span class="badge badge-light"> <%= @recipe.time.split(".").first %></span></div>
+        </div>
+        <div>
+          <div>Cooking</div>
+          <div><span class="badge badge-light"><%= @recipe.time.split(".")[1] %></span></div>
+        </div>
+        <div>
+          <div>Resting</div>
+          <div><span class="badge badge-light"><%= @recipe.time.split(".").last %></span></div>
+        </div>
+        <div>
+          <div>Servings</div>
+          <div><span class="badge badge-light"><%= @recipe.servings %> </span></div>
+        </div>
+      </small>
+  </div>
+</div>
+</div>
+<div class="row container-details">
+  <div class="col-md-10 offset-md-1">
+    <div class="mb-3">
         <div class="col-md-12">
           <div class="row">
             <div class="col-md-4 text-justify">
-              <h4>Ingridients</h4>
-              <% @recipe.ingredients.each do |ing| %>
-                <% if ing.quantity == nil %>
-                  <%= ing.name.capitalize %>
-                <% else %>
-                  <%# <p class="ingridient-name">%> <%= ing.quantity %><%= ing.name.capitalize %>
-                  <%# </p> %>
-                  <br>
+              <h4>Ingredients</h4>
+              <ul>
+                <% @recipe.ingredients.each do |ing| %>
+                  <% if ing.quantity == nil %>
+                  <li><%= ing.name.capitalize %></li>
+                  <% else %>
+                    <li> <span><%= ing.quantity %></span><span><%= ing.name.capitalize %></span></li>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </ul>
             </div>
             <div class="col-md-8 text-justify">
               <h4>Method</h4>
+              <ol>
               <% @recipe.recipe_methods.each do |i| %>
-                <%= i.instructions %>
-                <br>
-                <br>
+                <li><%= i.instructions %></li>
               <% end %>
+              </ol>
               <h4 class="card-title">Reviews
-                <a href="<%=  new_recipe_review_path(@recipe) %>" class="btn btn-dark">Add review</a>
+                <a href="<%=  new_recipe_review_path(@recipe) %>" class="btn btn-ghost">Add review</a>
               </h4>
                 <% if @recipe.reviews.length == 0  %>
                   <p>No reviews yet</p>
                 <% end %>
                 <div>
                   <% @recipe.reviews.each do |review| %>
-                    <%= review.rating %> <br>
+                    <span class="badge badge-light"><%= review.rating %> Stars </span><br>
+                    <%= review.user.full_name%><br>
                     <%= review.content %>
                   <% end %>
                 </div>
               <br>
               <br>
-              
+
               <h4 class="card-title">Nutritional Information</h4>
                 <p>
                   <% (JSON.parse @recipe.macros.gsub('=>', ':')).values.each_with_index do |v, i| %>

@@ -2,12 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 24px;
+  padding: 32px;
 
   .calendar {
     max-width: 70%;
     position: relative;
     overflow-y: hidden;
+
+    h2 {
+    color: #ef4444;
+  }
 
     .simple-calendar {
       max-width: 100%;
@@ -18,6 +22,7 @@
       .calendar-heading {
         position: absolute;
         top: 56px;
+        right: 0px;
       }
 
       .today {
@@ -31,11 +36,13 @@
   }
 }
 
+
 .fav-recipes {
   padding-left: 24px;
 
-  h1 {
+  h2 {
     margin-bottom: 30px;
+    color: #ef4444;
   }
 
   li {
@@ -71,11 +78,6 @@
   }
 }
 
-.sortable-fallback {
-  color: red;
-  background: none;
-  box-sizing:10px;
-}
 
 .delete .fas {
   color: red;

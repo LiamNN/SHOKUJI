@@ -4,24 +4,89 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  // background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.73));
-  // position: relative;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.73));
+  position: relative;
+  color: white;
 
 }
 
 .card-title {
   display: flex;
   justify-content: space-between;
-  font-size: 20px;
   margin-top: auto;
   // text-shadow: 2px 2px 5px rgb(0 0 0 / 60%);
   text-align: center;
-  // position: absolute;
   background-color: transparent;
+
+  a .btn {
+    color: black !important;
+  }
 }
 
-.card {
-  border: none !important;
-  background-color: transparent;
+.container-details{
+  margin: 50px;
+}
+.container-photo {
+  width: 100%;
+  height: 100%;
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,0.34077380952380953) 0%, rgba(0,0,0,0) 29%);
+}
 
+.card-body {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding-left: 100px !important;
+}
+
+
+li {
+  display: flex;
+  span {
+    width: 100px;
+
+  }
+}
+
+
+.badge-light {
+  width: 70px;
+  background-color: lightgrey !important;
+}
+small {
+  display: flex;
+  color: lightgray;
+  text-align: center;
+
+  div {
+  margin-left: 5px;
+  }
+}
+
+h4 {
+  color: #ef4444;
+
+}
+
+ol {
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+ol li {
+  counter-increment: my-awesome-counter;
+  margin-bottom: 16px;
+}
+
+ol li::before {
+  content: counter(my-awesome-counter) "";
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.4);
+  height: 24px;
+  width: 17px;
+  padding: 20px 26px 20px 20px;
+  display: flex;
+  line-height: 0px;
+  text-align: center;
+  margin-right: 24px;
+  background-color: white;
 }
