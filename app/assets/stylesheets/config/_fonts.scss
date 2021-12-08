@@ -2,10 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('//db.onlinewebfonts.com/c/9475d6a0b79c164f9f605673714e75d9?family=Circular+Std+Medium');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url('//db.onlinewebfonts.com/c/860c3ec7bbc5da3e97233ccecafe512e?family=Circular+Std+Book');
 
 // Define fonts for body and headers
-$body-font: "Circular Std Medium", "sans-serif";
-$headers-font: "Circular Std Medium", "Helvetica", "sans-serif";
+$body-font: "Circular Std Book", "sans-serif";
+$headers-font: "Circular Std Book", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
