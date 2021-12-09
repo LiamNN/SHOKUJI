@@ -1,0 +1,27 @@
+.image-sing {
+  height: 96vh;
+  width: 50vw;
+  background-size: cover;
+  background-position: center;
+}
+.form-grid{
+   display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.form-text {
+  justify-content:left;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 0;
+  // margin-left: 250px;
+
+}
+
+.form-check {
+  width: 8rem;
+}
