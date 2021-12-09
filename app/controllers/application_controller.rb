@@ -15,6 +15,11 @@ class ApplicationController < ActionController::Base
   #   user_signed_in? && current_user.goals.present?
   # end
 
+  def after_sign_in_path_for(resource)
+    recipes_path
+  end
+
+
   def configure_permitted_parameters
     keys = [:email, :password, :full_name, :address]
     devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(keys)}
