@@ -1,6 +1,8 @@
 <div class="main-container">
   <div class="container-body" style="justify-content: center; width: 50%;">
-      <h2 style="color: white; font-size: 56px">Welcome to Shokuji <span style="font-weight: 600;">食地</span></h2>
+      <%= link_to recipes_path do %>
+        <h2 style="color: white; font-size: 56px">Welcome to Shokuji <span style="font-weight: 600;">食地</span></h2>
+      <% end %>
       <p style="color: white; font-size: 18px">Having your entire week’s meals planned out is the perfect way to not only save time and money, but to help you reach your ultimate health goals. As great as that sounds, it’s not always easy to stay on track! That’s why <span style="font-weight: 700;">SHOKUJI</span> may be just what you need to keep you on track.</p>
       <div class="row">
         <%= link_to "/users/sign_up", class:'text-decoration-none p-1' do %>
