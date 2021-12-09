@@ -5,7 +5,7 @@
 <div class="photo" style="background-image: url('<%= @recipe.photo %>')">
 <div class="container-photo">
   <div class="card-body">
-      <h2 class="card-title line-clamp-2 pr-3">
+      <h2 class="card-title line-clamp-2 pr-3" style="text-shadow: 2px 2px 5px rgb(0 0 0 / 60%)">
         <%= @recipe.name %>
           <%= link_to toggle_favorite_recipe_path(@recipe), remote: true, method: :post do %>
             <%= render 'like_button', recipe: @recipe %>
@@ -65,8 +65,11 @@
                 <div>
                   <% @recipe.reviews.each do |review| %>
                     <span class="badge badge-light"><%= review.rating %> Stars </span><br>
-                    <%= review.user.full_name%><br>
+                    <h6 style= 'font-family: Libre Baskerville;'><%= review.user.full_name%></h6>
                     <%= review.content %>
+                    <br>
+                    <br>
+
                   <% end %>
                 </div>
               <br>
