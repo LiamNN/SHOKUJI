@@ -6,8 +6,8 @@
     <% @categories.each do |category, icon| %>
     <div class="category-item">
       <input class="form-check-input check_boxes optional category-selector" type="checkbox" value="<%= category %>" name="user[goals][]" id=<%= category.gsub(" ", "") %>>
-      <label class="form-check-label collection_check_boxes" for=<%= category.gsub(" ", "") %>>
-      <i class='<%= icon %>' style="font-size: 24px; margin-bottom: 10px;"></i>
+      <label class="form-check-label collection_check_boxes" style="font-size: 16px;" for=<%= category.gsub(" ", "") %>>
+      <i class='<%= icon %>' style="font-size: 48px; margin-bottom: 10px;"></i>
       <%= category %>
       </label>
     </div>

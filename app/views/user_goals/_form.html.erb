@@ -5,7 +5,7 @@
       <div class="form-container">
         <%= simple_form_for user, url: path, method: method do |f| %>
           <%= f.input :goal_ids, label: 'Goals', as: :check_boxes, collection: Goal.all, label_method: :name, value_method: :id %>
-          <%= f.submit 'Set Goals',class: 'btn btn-dark' %>
+          <%= f.submit 'Set Goals',class: 'btn btn-dark btn-block' %>
         <% end %>
       </div>
     </div>
