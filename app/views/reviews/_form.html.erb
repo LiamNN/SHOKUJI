@@ -1,20 +1,18 @@
-<div class="row" style="margin-left: 100px; margin-top: 50px;" >
-  <%= link_to '< Back', recipes_path(@recipe) , :style=>"color: #476072;"%>
-</div>
+<div class="form-grid">
+<div class='mt-5 mx-5 p-5'>
 
-
-<div class="container py-5">
-  <h3 class="text-center">New Review for <br>
-    <%= @recipe.name %></h3>
-  <div class="row">
-    <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-md-3">
+  <h3>New Review for <br>
+    <strong><%= @recipe.name %></strong></h3>
+    <br>
       <div class="form-container ">
         <%= simple_form_for [@recipe, @review ] do |f| %>
           <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
           <%= f.input :content %>
-          <%= f.submit class: 'btn btn-dark' %>
+          <%= f.submit class: 'btn btn-dark btn-block' %>
         <% end %>
       </div>
-    </div>
-  </div>
+
+
+</div>
+<div class='image-sing' style="background-image: url(<%= @recipe.photo %>);"></div>
 </div>

@@ -13,20 +13,20 @@
       </h2>
       <small>
         <div>
-          <div>Preparation</div>
-          <div><span class="badge badge-light"> <%= @recipe.time.split(".").first %></span></div>
+          <div style="text-shadow: 2px 2px 5px rgb(0 0 0 / 60%); font-size: 16px; color: white; font-weight: 600;">Preparation</div>
+          <div class="card p-1 px-3" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; background-color: rgb(210,210,210)"><span style="color: black;"> <%= @recipe.time.split(".").first %></span></div>
         </div>
         <div>
-          <div>Cooking</div>
-          <div><span class="badge badge-light"><%= @recipe.time.split(".")[1] %></span></div>
+          <div style="text-shadow: 2px 2px 5px rgb(0 0 0 / 60%); font-size: 16px; color: white; font-weight: 600;">Cooking</div>
+          <div class="card p-1 px-3" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; background-color: rgb(210,210,210)"><span style="color: black;"><%= @recipe.time.split(".")[1] %></span></div>
         </div>
         <div>
-          <div>Resting</div>
-          <div><span class="badge badge-light"><%= @recipe.time.split(".").last %></span></div>
+          <div style="text-shadow: 2px 2px 5px rgb(0 0 0 / 60%); font-size: 16px; color: white; font-weight: 600;">Resting</div>
+          <div class="card p-1 px-3" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; background-color: rgb(210,210,210)"><span style="color: black;"><%= @recipe.time.split(".").last %></span></div>
         </div>
         <div>
-          <div>Servings</div>
-          <div><span class="badge badge-light"><%= @recipe.servings %> </span></div>
+          <div style="text-shadow: 2px 2px 5px rgb(0 0 0 / 60%); font-size: 16px; color: white; font-weight: 600;">Servings</div>
+          <div class="card p-1 px-3" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; background-color: rgb(210,210,210)"><span style="color: black;"><%= @recipe.servings %> </span></div>
         </div>
       </small>
   </div>
