@@ -73,12 +73,15 @@
               <br>
 
               <h4 class="card-title">Nutritional Information</h4>
-                <p>
-                  <% (JSON.parse @recipe.macros.gsub('=>', ':')).values.each_with_index do |v, i| %>
-                  <%= v %> <%= (JSON.parse @recipe.macros.gsub('=>', ':')).keys[i] %>
-                  <br>
-                  <% end %>
-                </p>
+                <ul>
+                    <% (JSON.parse @recipe.macros.gsub('=>', ':')).values.each_with_index do |v, i| %>
+                  <li class="li-macros">
+                  <span><%= v %></span><span> <%= (JSON.parse @recipe.macros.gsub('=>', ':')).keys[i] %>
+                    <br>
+                    </span>
+                  </li>
+                    <% end %>
+                </ul>
             </div>
           </div>
         </div>

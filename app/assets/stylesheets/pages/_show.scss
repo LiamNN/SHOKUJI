@@ -14,15 +14,24 @@
   display: flex;
   justify-content: space-between;
   margin-top: auto;
-  // text-shadow: 2px 2px 5px rgb(0 0 0 / 60%);
   text-align: center;
   background-color: transparent;
 
   a .btn {
     color: black !important;
   }
-}
 
+  li {
+    display: flex;
+  }
+  span {
+    width: 100px;
+
+  }
+}
+.li-macros {
+  width: 34%;
+}
 .container-details{
   margin: 50px;
 }
@@ -45,6 +54,7 @@ li {
   display: flex;
   span {
     width: 100px;
+    flex-grow: 2;
 
   }
 }

@@ -17,6 +17,14 @@
         top: 56px;
         right: 0px;
 
+        a {
+          border: 1px solid black;
+          border-radius: 0.25rem;
+          padding: 0.375rem 0.75rem;
+          text-align: center;
+          justify-content: space-between;
+          }
+
         .calendar-title {
           display: none;
         }
@@ -54,7 +62,7 @@ tbody {
     align-items: center;
     box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.4);
     padding: 0;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 
     > div {
       width: 100px;

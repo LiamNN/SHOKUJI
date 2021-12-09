@@ -32,7 +32,8 @@
     <% end %>
   </div>
   <div class="fav-recipes">
-    <h4 class="text-center">Favorite Recipes</h4>
+  <br>
+    <h4 class="text-center">Favourites</h4>
     <ul id="favorite-recipes" class="list-unstyled">
       <% @favorites.each do |recipe| %>
         <li class="media" data-url="<%= recipe_scheduled_recipes_path(recipe, format: :json) %>">
