@@ -6,9 +6,12 @@
           <a class="navbar-brand text-decoration-none pb-3" id="title" href="/" style="colour: black; font-weight: 100; font-family: Circular Std Medium;"><span style="font-size: 24px; letter-spacing: 8px;">SHOKUJI</span></a>
         </div>
         <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3 mt-3">
+          <% if current_user.present? %>
             <%= link_to destroy_user_session_path, method: :delete do %>
               <h5 style="opacity: 0.5; font-weight: 700px; font-size: 15px; letter-spacing: 2px">LOGOUT</h5>
             <% end %>
+
+          <% end %>
         </div>
       </div>
     </div>
