@@ -9,42 +9,42 @@
   <div class="pb-2"><h4 class="py-4">Recipes</h4></div>
   <div class="d-flex flex-wrap pb-1.5">
     <%= link_to shopping_lists_path, class:'text-decoration-none pr-2 align-self-center mb-1.5' do %>
-      <div class="card p-1.5 px-3 <%= params[:format].nil? ? 'active-tab' : ''%>" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
+      <div class="card p-1.5 px-3 <%= params[:format].nil? ? 'active-tab' : ''%>" style="text-align: center; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
         WEEK
       </div>
     <% end %>
   <%= link_to shopping_lists_path(Date.today), class:'text-decoration-none pr-2 align-self-center mb-1.5' do %>
-    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == Date.today%>" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
+    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == Date.today%>" style="text-align: center; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
       TODAY
     </div>
   <% end %>
   <%= link_to shopping_lists_path(Date.today + 1), class:'text-decoration-none pr-2 align-self-center mb-1.5' do %>
-    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 1)%>" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
+    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 1)%>" style="text-align: center; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
       TOMORROW
     </div>
   <% end %>
   <%= link_to shopping_lists_path(Date.today + 2), class:'text-decoration-none pr-2 align-self-center mb-1.5' do %>
-    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 2)%>" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
+    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 2)%>" style="text-align: center; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
       <%= (Date.today + 2).strftime("%A").upcase %>
     </div>
   <% end %>
   <%= link_to shopping_lists_path(Date.today + 3), class:'text-decoration-none pr-2 align-self-center mb-1.5' do %>
-    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 3)%>" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
+    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 3)%>" style="text-align: center; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
       <%= (Date.today + 3).strftime("%A").upcase %>
     </div>
   <% end %>
   <%= link_to shopping_lists_path(Date.today + 4), class:'text-decoration-none pr-2 align-self-center mb-1.5' do %>
-    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 4)%>" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
+    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 4)%>" style="text-align: center; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
       <%= (Date.today + 4).strftime("%A").upcase %>
     </div>
   <% end %>
   <%= link_to shopping_lists_path(Date.today + 5), class:'text-decoration-none pr-2 align-self-center mb-1.5' do %>
-    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 5)%>" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
+    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 5)%>" style="text-align: center; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
       <%= (Date.today + 5).strftime("%A").upcase %>
     </div>
   <% end %>
   <%= link_to shopping_lists_path(Date.today + 6), class:'text-decoration-none pr-2 align-self-center mb-1.5' do %>
-    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 6)%>" style="text-align: center; max-width: 160px; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
+    <div class="card p-1.5 px-3 <%='active-tab' if params[:format]&.to_date == (Date.today + 6)%>" style="text-align: center; font-family: Circular Std Book; letter-spacing: 2px; border: 1px solid rgba(19, 19, 19, 0.8)">
       <%= (Date.today + 6).strftime("%A").upcase %>
     </div>
   <% end %>
